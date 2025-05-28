@@ -5,9 +5,12 @@ import static com.ureca.miniproject.common.BaseCode.INVITE_ALREADY_EXIST;
 import static com.ureca.miniproject.common.BaseCode.INVITE_SELF_DECLINED;
 import static com.ureca.miniproject.common.BaseCode.USER_NOT_FOUND;
 import static com.ureca.miniproject.friend.entity.Status.ACCEPTED;
-import static com.ureca.miniproject.friend.entity.Status.DECLINED;
 import static com.ureca.miniproject.friend.entity.Status.WAITING;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +44,7 @@ public class FriendServiceImpl implements FriendService {
 	
 	private final FriendRepository friendRepository;
 	private final UserRepository userRepository;
-	@Override
+	@Override	
 	public InviteFriendResponse inviteFriend(InviteFriendRequest inviteFriendRequest) {
 		
 		User invitee = userRepository.findByEmail(inviteFriendRequest.getInviteeEmail())
